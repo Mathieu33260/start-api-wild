@@ -14,6 +14,8 @@ use App\DTO\User\UserGetOutput;
 use App\DTO\User\UserPostInput;
 use App\DTO\User\UserPostOutput;
 use App\DTO\User\UserListOutput;
+use App\DTO\User\UserPutInput;
+use App\DTO\User\UserPutOutput;
 
 #[ApiResource(
     collectionOperations: [
@@ -24,7 +26,8 @@ use App\DTO\User\UserListOutput;
         ],
         'get' => [
             'method' => 'GET',
-            'output' => UserListOutput::class
+            'output' => UserListOutput::class,
+            'security' => "is_granted('ROLE_SUPER_ADMIN')",
         ]
     ],
     itemOperations: [
@@ -32,6 +35,13 @@ use App\DTO\User\UserListOutput;
             'method' => 'GET',
             'input' => UserGetInput::class,
             'output' => UserGetOutput::class,
+            'security' => "is_granted('ROLE_SUPER_ADMIN') or object == user",
+        ],
+        'put' => [
+            'method' => 'PUT',
+            'input' => UserPutInput::class,
+            'output' => UserPutOutput::class,
+            'security' => "is_granted('ROLE_SUPER_ADMIN') or object == user",
         ],
     ],
 )]

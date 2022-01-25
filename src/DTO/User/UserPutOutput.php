@@ -2,9 +2,11 @@
 
 namespace App\DTO\User;
 
-class UserPostOutput
+class UserPutOutput
 {
     public int $id;
 
     public string $email;
+
+    public string $displayName;
 }
