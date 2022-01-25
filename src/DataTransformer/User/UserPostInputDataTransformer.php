@@ -31,6 +31,8 @@ class UserPostInputDataTransformer implements DataTransformerInterface
         $user->setEmail($userPostInput->email);
         $user->setPassword($this->passwordHasher->hashPassword($user, $userPostInput->password));
         $user->setRoles(['ROLE_USER']);
+        $user->setFirstName($userPostInput->firstName);
+        $user->setLastName($userPostInput->lastName);
 
         return $user;
     }

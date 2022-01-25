@@ -18,4 +18,14 @@ class UserPostInput
      * @Assert\NotBlank()
      */
     public string $password;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    public string $firstName;
+
+    /**
+     * @Assert\NotBlank()
+     */
+    public string $lastName;
 }

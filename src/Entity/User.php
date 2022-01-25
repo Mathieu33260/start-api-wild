@@ -43,6 +43,10 @@ use App\DTO\User\UserPutOutput;
             'output' => UserPutOutput::class,
             'security' => "is_granted('ROLE_SUPER_ADMIN') or object == user",
         ],
+        'delete' => [
+            'method' => 'DELETE',
+            'security' => "is_granted('ROLE_SUPER_ADMIN')",
+        ],
     ],
 )]
 #[ApiFilter(
